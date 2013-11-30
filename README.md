@@ -1,4 +1,4 @@
-whatever-o-meter
+Whatever-o-meter
 ================
 
 Wordpress plugin for creating a whatver-o-meter
