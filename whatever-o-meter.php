@@ -151,7 +151,7 @@ function whatever_shortcode($atts) {
       <div class=\"right\"
 	   style=\"text-align: right; float: left; width: 33%\">$right</div>
     </div>
-    <div style=\"width: 100%; clear: left; padding: 24px 0 0;\">\n";
+    <div style=\"width: 100%; clear: left; padding: 20px 0 0;\">\n";
 
 	    else
 		echo "\t<div class=\"left\"
@@ -275,27 +275,8 @@ function whatever_footer() {
 
 	// Output the code
 
-	echo "<!-- whatever-o-meter facebook javascript -->
-<div id=\"fb-root\"></div>
-<!--<script>
-  window.fbAsyncInit = function() {
-    // init the FB JS SDK
-    FB.init({
-      appId: '$appid',
-      status: true,
-      xfbml: true
-    });
-  };
-
-  (function(){
-     if (document.getElementById('facebook-jssdk')) {return;}
-     var firstScriptElement = document.getElementsByTagName('script')[0];
-     var facebookJS = document.createElement('script'); 
-     facebookJS.id = 'facebook-jssdk';
-     facebookJS.src = '//connect.facebook.net/en_US/all.js';
-     firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-   }());
-</script>-->\n";
+	echo "<!-- whatever-o-meter facebook -->
+<div id=\"fb-root\"></div>\n";
 
     }
 }
