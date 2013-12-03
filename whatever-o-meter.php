@@ -3,7 +3,7 @@
  * Plugin Name: Whatever-o-meter
  * Plugin URI: http://billthefarmer.users.sourceforge.net/wordpress/whatever-o-meter
  * Description: Lets you create a whatever-o-meter using your data.
- * Version: 0.1
+ * Version: 0.2
  * Author: Bill Farmer
  * Author URI: http://billthefarmer.users.sourceforge.net
  * License: GPL2
@@ -115,7 +115,7 @@ function whatever_shortcode($atts) {
 
 	echo "\t<div id=\"first\" style=\"text-align: center\">
     <h3>$intro</h3>
-    <input type=\"image\" src=\"$start\" width=\"164\" class=\"start\" id=\"start\" />
+    <input type=\"image\" src=\"$start\" alt=\"Start\" width=\"164\" class=\"start\" id=\"start\" />
   </div>\n";
 
 	$questions = $custom['question'];
@@ -162,12 +162,12 @@ function whatever_shortcode($atts) {
     <div style=\"width: 100%; clear: left; padding: 24px 0 0;\">\n";
 
 	    if ($key < $length - 1)
-		echo "\t<input type=\"image\" src=\"$next\" width=\"164\" class=\"next\" id=\"next$count\" />
+		echo "\t<input type=\"image\" src=\"$next\" alt=\"Next\" width=\"164\" class=\"next\" id=\"next$count\" />
     </div>
   </div>\n";
 
 	    else
-		echo "\t<input type=\"image\" src=\"$results\" width=\"265\" class=\"result\" id=\"result\" />
+		echo "\t<input type=\"image\" src=\"$results\" alt=\"Get Results\" width=\"265\" class=\"result\" id=\"result\" />
     </div>
   </div>\n";
 
@@ -181,10 +181,10 @@ function whatever_shortcode($atts) {
 
 	echo "\t<div id=\"last\" style=\"display: none; text-align: center;\">
     <h3 id=\"answer\"></h3>
-    <input type=\"image\" src=\"$again\" width=\"164\" class=\"again\" id=\"again\" />\n";
+    <input type=\"image\" src=\"$again\" alt=\"Again\" width=\"164\" class=\"again\" id=\"again\" />\n";
 
 	if ($custom['facebook-appid'])
-	    echo "    <input type=\"image\" src=\"$facebook\" width=\"90\" class=\"facebook\" id=\"facebook\" />
+	    echo "    <input type=\"image\" src=\"$facebook\" alt=\"Facebook\" width=\"90\" class=\"facebook\" id=\"facebook\" />
   </div>\n";
 
 	else
@@ -244,8 +244,8 @@ function whatever_footer() {
 	if ($custom['facebook-caption'])
 	    $caption= $custom['facebook-caption'][0];
 
-	if ($custom['facebook-message'])
-	    $message = $custom['facebook-message'][0];
+	if ($custom['facebook-description'])
+	    $description = $custom['facebook-description'][0];
 
 	if ($custom['facebook-picture'])
 	    $picture = $custom['facebook-picture'][0];
@@ -253,7 +253,8 @@ function whatever_footer() {
 	$json_array= array('weights' => $weights, 'results' => $results,
 			   'duration' => $duration, 'easing' => $easing,
 			   'appid' => $appid, 'caption' => $caption,
-			   'message' => $message, 'picture' => $picture);
+			   'description' => $description,
+			   'picture' => $picture);
 
 	$json = json_encode($json_array);
 
