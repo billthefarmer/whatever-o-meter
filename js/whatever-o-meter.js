@@ -37,9 +37,9 @@ jQuery(document).ready(function($) {
     $("div.slider").slider({range: "min", max: 20, min: -20,
 			    value: 0, step: 10});
 
-    // And the buttons
+    // Don't need to set up image buttons
 
-    $("input[type=button]").button();
+    // $("input[type=image]").button();
 
     // Define the function variables
 
@@ -190,8 +190,8 @@ jQuery(document).ready(function($) {
 
     var appid = whatever_data["appid"];
 
-    if (appid)
-    {
+    if (appid) {
+
 	$.ajaxSetup({cache: true});
 	$.getScript('//connect.facebook.net/en_UK/all.js', function(){
 	    FB.init({
