@@ -22,6 +22,7 @@ jQuery(document).ready(function($) {
     var weights = whatever_data["weights"];
     var easing = whatever_data["easing"];
     var duration = whatever_data["duration"];
+    var size = whatever_data["size"];
 
     // Centre the header
 
@@ -41,6 +42,66 @@ jQuery(document).ready(function($) {
 
     // $("input[type=image]").button();
 
+    // Handle resizing
+
+    resize();
+
+    $(window).resize(function() {
+
+	resize();
+
+    });
+
+    function resize() {
+
+	// Get container width
+
+	var width = $("div.entry-content").width();
+
+	// If too small
+
+	if (width < size)
+	{
+	    // Calculate scale
+
+	    var scale = width / size;
+	    var offset = (width / 2) * scale;
+
+	    // Set scale of tacho dial
+
+	    $("#tacho-svg").css("transform",
+				"scale(" + scale + ")");
+	    $("#tacho-svg").css("transform-origin", "center center");
+
+	    $("#tacho-group").attr("transform",
+				   "translate(" + offset + "," + offset + ")");
+
+	    // Set width of whatever-o-meter
+
+	    $("#whatever-o-meter").width(width);
+	    $("#tacho-dial").height(width);
+	}
+
+	else
+	{
+	    // Calculate offset
+
+	    var offset = size / 2;
+
+	    // Remove scale
+
+	    $("#tacho-svg").css("transform", "none");
+	    $("#tacho-group").attr("transform",
+				   "translate(" + offset + "," + offset + ")");
+
+	    // Restore width
+
+	    $("#whatever-o-meter").width(size);
+	    $("#tacho-dial").height("auto");
+	}
+
+    }
+
     // Define the function variables
 
     var panel = 0;
@@ -55,26 +116,26 @@ jQuery(document).ready(function($) {
 
 	panel++;
 
-	$("#panel" + panel).slideDown();
+	$("#panel-" + panel).slideDown();
     });
 
     // Process the next buttons
 
     $("input.next").click(function() {
 
-	$("#panel" + panel).slideUp();
+	$("#panel-" + panel).slideUp();
 
 	// Check if weights are defined
 
 	if (weights == null)
 	{
-	    value += $("#value" + panel).slider("value");
+	    value += $("#value-" + panel).slider("value");
 	    total++;
 	}
 
 	else
 	{
-	    value += $("#value" + panel).slider("value") *
+	    value += $("#value-" + panel).slider("value") *
 		weights[index];
 	    total += weights[index];
 	}
@@ -82,7 +143,7 @@ jQuery(document).ready(function($) {
 	panel++;
 	index++;
 
-	$("#panel" + panel).slideDown();
+	$("#panel-" + panel).slideDown();
     });
 
     // Place to put the final answers (42)
@@ -98,13 +159,13 @@ jQuery(document).ready(function($) {
 
 	if (weights == null)
 	{
-	    value += $("#value" + panel).slider("value");
+	    value += $("#value-" + panel).slider("value");
 	    total++;
 	}
 
 	else
 	{
-	    value += $("#value" + panel).slider("value") *
+	    value += $("#value-" + panel).slider("value") *
 		weights[index];
 	    total += weights[index];
 	}
@@ -124,16 +185,16 @@ jQuery(document).ready(function($) {
 	digits = ((value + 20) * 2.5) | 0;
 
 	if (digits == 100) {
-	    $("#digit1").empty();
-	    $("#digit1").append("1");
+	    $("#digit-1").empty();
+	    $("#digit-1").append("1");
 	}
 
 	else {
-	    $("#digit2").empty();
-	    $("#digit3").empty();
+	    $("#digit-2").empty();
+	    $("#digit-3").empty();
 
-	    $("#digit2").append((digits / 10) | 0);
-	    $("#digit3").append(digits % 10);
+	    $("#digit-2").append((digits / 10) | 0);
+	    $("#digit-3").append(digits % 10);
 	}
 
 	// Calculate the value for selecting the result text. There is
@@ -157,7 +218,7 @@ jQuery(document).ready(function($) {
 
 	answer = results[result].replace("%d", digits);
 
-	$("#panel" + panel).slideUp();
+	$("#panel-" + panel).slideUp();
 	$("#last").slideDown();
     });
 

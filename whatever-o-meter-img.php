@@ -67,137 +67,48 @@ function whatever_shortcode($atts) {
     if ($custom['question']) {
 
 	// Output the tacho dial
-?>
-<!-- whatever-o-meter html -->
-   <div id="whatever-o-meter" style="margin: 0 auto; width: 560px;">
-     <div id="tacho-dial">
-       <!-- SVG Dial -->
-      <svg id="tacho-svg" width="560" height="560" style="overflow: visible;">
-	<!-- Gradients for highlights -->
-	<defs>
-	  <radialgradient id="radial" r="50%">
-	    <stop offset="0%" stop-color="white" />
-	    <stop offset="100%" stop-color="#1d1d1b" />
-	  </radialgradient>
-	  <radialgradient id="green" r="50%">
-	    <stop offset="0%" stop-color="white" />
-	    <stop offset="100%" stop-color="#b2be34" />
-	  </radialgradient>
-	  <radialgradient id="red" r="50%">
-	    <stop offset="0%" stop-color="white" />
-	    <stop offset="100%" stop-color="#9d1b33" />
-	  </radialgradient>
-	  <radialgradient id="yellow" r="50%">
-	    <stop offset="0%" stop-color="white" />
-	    <stop offset="100%" stop-color="#e7eb63" />
-	  </radialgradient>
-	</defs>
-	<!-- Transform to the centre -->
-	<g id="tacho-group" transform="translate(280,280)">
-	  <!-- Outer black ring -->
-	  <circle r="280" stroke="#1d1d1b" />
-	  <circle r="276" stroke="white" stroke-width="2" />
-	  <circle r="256" stroke="white" stroke-width="2" />
-	  <circle r="250" stroke="#9a9a9a" fill="#9a9a9a" />
-	  <!-- Coloured segments -->
-	  <path d="M0,0 L-147,202 A250,250 1 0,1 -250,0 Z"
-		stroke="#9b1d33" fill="#9b1d33" />
-	  <path d="M0,0 L-250,0 A250,250 1 0,1 -125,-216 Z"
-		stroke="#c23c45" fill="#c23c45" />
-	  <path d="M0,0 L-125,-216 A250,250 1 0,1 125,-216 Z"
-		stroke="#e47152" fill="#e47152" />
-	  <path d="M0,0 L125,-216 A250,250 1 0,1 250,0 Z"
-		stroke="#e7eb63" fill="#e7eb63" />
-	  <path d="M0,0 L250,0 A250,250 1 0,1 147,202 Z"
-		stroke="#b2be34" fill="#b2be34" />
-	  <!-- Inner black ring -->
-	  <circle r="148" stroke="#1d1d1b" />
-	  <circle r="120" stroke="white" stroke-width="6" />
-	  <circle r="112" stroke="#9a9a9a" fill="#9a9a9a" />
-	  <!-- Ticks -->
-	  <line x1="-128" y1="0" x2="-144" y2="0"
-		stroke="white" stroke-width="5" />
-	  <line x1="0" y1="-128" x2="0" y2="-144"
-		stroke="white" stroke-width="5" />
-	  <line x1="128" y1="0" x2="144" y2="0"
-		stroke="white" stroke-width="5" />
-	  <line x1="0" y1="128" x2="0" y2="144"
-		stroke="white" stroke-width="2" />
-	  <line x1="-90" y1="90" x2="-101" y2="101"
-		stroke="white" stroke-width="5" />
-	  <line x1="-90" y1="-90" x2="-101" y2="-101"
-		stroke="white" stroke-width="5" />
-	  <line x1="90" y1="-90" x2="101" y2="-101"
-		stroke="white" stroke-width="5" />
-	  <line x1="90" y1="90" x2="101" y2="101"
-		stroke="white" stroke-width="5" />
-	  <line x1="-118" y1="49" x2="-132" y2="55"
-		stroke="white" stroke-width="2" />
-	  <line x1="-118" y1="-49" x2="-132" y2="-55"
-		stroke="white" stroke-width="2" />
-	  <line x1="118" y1="49" x2="132" y2="55"
-		stroke="white" stroke-width="2" />
-	  <line x1="118" y1="-49" x2="132" y2="-55"
-		stroke="white" stroke-width="2" />
-	  <line x1="-49" y1="-118" x2="-55" y2="-132"
-		stroke="white" stroke-width="2" />
-	  <line x1="49" y1="-118" x2="55" y2="-132"
-		stroke="white" stroke-width="2" />
-	  <!-- Inner segments -->
-	  <path d="M0,0 L-65,91 A112,112 1 0,1 -112,0 Z"
-		stroke="#9b1d33" fill="#9b1d33" />
-	  <path d="M0,0 L-112,0 A112,112 1 0,1 -56,-97 Z"
-		stroke="#c23c45" fill="#c23c45" />
-	  <path d="M0,0 L-56,-97 A112,112 1 0,1 56,-97 Z"
-		stroke="#e47152" fill="#e47152" />
-	  <path d="M0,0 L56,-97 A112,112 1 0,1 112,0 Z"
-		stroke="#e7eb63" fill="#e7eb63" />
-	  <path d="M0,0 L112,0 A112,112 1 0,1 65,91 Z"
-		stroke="#b2be34" fill="#b2be34" />
-	  <!-- Warning lights -->
-	  <circle cx="0" cy="200" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
-	  <circle cx="0" cy="200" r="11" stroke="#b2be34" fill="#b2be34" />
-	  <circle cx="-4" cy="195" r="5" fill="url(#green)" />
-	  <circle cx="-62" cy="190" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
-	  <circle cx="-62" cy="190" r="11" stroke="#9b1d33" fill="#9b1d33" />
-	  <circle cx="-66" cy="186" r="5" fill="url(#red)" />
-	  <circle cx="62" cy="190" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
-	  <circle cx="62" cy="190" r="11" stroke="#e7eb63" fill="#e7eb63" />
-	  <circle cx="58" cy="186" r="5" fill="url(#yellow)" />
-	  <!-- Od-o-meter -->
-	  <rect x="-56" y="50" width="16" height="24"
-		stroke="#3d3d3d" fill="#3d3d3d" />
-	  <rect x="-32" y="50" width="16" height="24"
-		stroke="#3d3d3d" fill="#3d3d3d" />
-	  <rect x="-8" y="50" width="16" height="24"
-		stroke="#3d3d3d" fill="#3d3d3d" />
-	  <rect x="16" y="50" width="16" height="24"
-		stroke="#3d3d3d" fill="#3d3d3d" />
-	  <rect x="40" y="50" width="16" height="24"
-		stroke="#3d3d3d" fill="#3d3d3d" />
-	  <!-- Od-o-meter digits -->
-	  <text id="digit-1" class="digit" x="-55" y="70" font-size="24"
-		stroke="white" fill="white">0</text>
-	  <text id="digit-2" class="digit" x="-31" y="70" font-size="24"
-		stroke="white" fill="white">0</text>
-	  <text id="digit-3" class="digit" x="-7" y="70" font-size="24"
-		stroke="white" fill="white">0</text>
-	  <text id="digit-4" class="digit" x="17" y="70" font-size="24"
-		stroke="white" fill="white">0</text>
-	  <text id="digit-5" class="digit" x="41" y="70" font-size="24"
-		stroke="white" fill="white">0</text>
-	  <!-- Pointer -->
-	  <g id="pointer">
-	    <path d="M0,64 L8,56 L3,-196 L0,-200 L-3,-196 L-8,56 Z"
-		  fill="#ede4c7" stroke="#1d1d1b" />
-	  </g>
-	  <!-- Pointer dome -->
-	  <circle r="36" fill="#1d1d1b" stroke="#1d1d1b" />
-	  <circle cx="-16" cy="-10" r="10" fill="url(#radial)" />
+
+	$image_url = plugins_url('/images/tacho-circle.png', __FILE__);
+
+	echo "\n<!-- whatever-o-meter html -->
+<div id=\"whatever-o-meter\" style=\"margin: 0 auto; width: 520px;\">
+  <div id=\"tacho-dial\" style=\"position: relative\">
+    <img id=\"tacho-img\" alt=\"tacho-circle\" src=\"$image_url\"
+	 width=\"520\" height=\"520\"
+	 style=\"max-width: none; transform: inherit;\" />
+    <svg id=\"tacho-svg\" width=\"520\" height=\"520\"
+	 style=\"position: absolute; left: 0; top: 0; transform: inherit;\">
+      <defs>
+	<radialgradient id=\"radial\" r=\"50%\">
+	  <stop offset=\"0%\" stop-color=\"white\" />
+	  <stop offset=\"100%\" stop-color=\"black\" />
+	</radialgradient>
+      </defs>
+      <g transform=\"translate(260,260)\">
+	<text id=\"digit1\" class=\"digit\"
+	      x=\"-57\" y=\"71\" font-size=\"24\"
+	      fill=\"white\" stroke=\"white\">0</text>
+	<text id=\"digit2\" class=\"digit\"
+	      x=\"-33\" y=\"71\" font-size=\"24\"
+	      fill=\"white\" stroke=\"white\">0</text>
+	<text id=\"digit3\" class=\"digit\"
+	      x=\"-9\" y=\"71\" font-size=\"24\"
+	      fill=\"white\" stroke=\"white\">0</text>
+	<text id=\"digit4\" class=\"digit\"
+	      x=\"15\" y=\"71\" font-size=\"24\"
+	      fill=\"white\" stroke=\"white\">0</text>
+	<text id=\"digit5\" class=\"digit\"
+	      x=\"39\" y=\"71\" font-size=\"24\"
+	      fill=\"white\" stroke=\"white\">0</text>
+	<g id=\"pointer\">
+	  <path d=\"M0,55 L8,47 L3,-185 L0,-189 L-3,-185 L-8,47 Z\"
+		fill=\"#ede4c7\" stroke=\"black\" />
 	</g>
-      </svg>
-    </div>
-<?php
+	<circle r=\"35\" fill=\"black\" stroke=\"black\" />
+	<circle cx=\"-15\" cy=\"-10\" r=\"9\" fill=\"url(#radial)\" />
+      </g>
+    </svg>
+  </div>\n";
 
 	// Output the intro panel
 
@@ -229,9 +140,9 @@ function whatever_shortcode($atts) {
 	    $centre = $centre_texts[$key];
 	    $right = $right_texts[$key]? $right_texts[$key]: "Yes";
 
-	    echo "\t<div id=\"panel-$count\" style=\"display: none; text-align: center\">
+	    echo "\t<div id=\"panel$count\" style=\"display: none; text-align: center\">
     <h3>$question</h3>
-    <div class=\"slider\" id=\"value-$count\"></div>
+    <div class=\"slider\" id=\"value$count\"></div>
     <div>\n";
 
 	    if (($centre) && (strcmp($centre, '-') != 0))
@@ -345,7 +256,7 @@ function whatever_footer() {
 			   'duration' => $duration, 'easing' => $easing,
 			   'appid' => $appid, 'caption' => $caption,
 			   'description' => $description,
-			   'picture' => $picture, 'size' => 560);
+			   'picture' => $picture);
 
 	$json = json_encode($json_array);
 
