@@ -46,11 +46,7 @@ jQuery(document).ready(function($) {
 
     resize();
 
-    $(window).resize(function() {
-
-	resize();
-
-    });
+    $(window).resize(resize);
 
     function resize() {
 
@@ -65,39 +61,26 @@ jQuery(document).ready(function($) {
 	    // Calculate scale
 
 	    var scale = width / size;
-	    var offset = (width / 2) * scale;
 
 	    // Set scale of tacho dial
 
-	    $("#tacho-svg").css("transform",
-				"scale(" + scale + ")");
-	    $("#tacho-svg").css("transform-origin", "center center");
-
-	    $("#tacho-group").attr("transform",
-				   "translate(" + offset + "," + offset + ")");
+	    $("#tacho-dial").css("origin", "0 100% 0");
+	    $("#tacho-dial").css("scale", scale);
 
 	    // Set width of whatever-o-meter
 
 	    $("#whatever-o-meter").width(width);
-	    $("#tacho-dial").height(width);
 	}
 
 	else
 	{
-	    // Calculate offset
-
-	    var offset = size / 2;
-
 	    // Remove scale
 
-	    $("#tacho-svg").css("transform", "none");
-	    $("#tacho-group").attr("transform",
-				   "translate(" + offset + "," + offset + ")");
+	    $("#tacho-dial").css("transform", "none");
 
 	    // Restore width
 
 	    $("#whatever-o-meter").width(size);
-	    $("#tacho-dial").height("auto");
 	}
 
     }

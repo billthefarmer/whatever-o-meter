@@ -35,6 +35,10 @@ function whatever_enqueue_scripts() {
 			  plugins_url('/js/jquery.rotate.min.js', __FILE__),
 			  array('jquery'));
 
+	wp_enqueue_script('jquery-scale',
+			  plugins_url('/js/jquery.scale.min.js', __FILE__),
+			  array('jquery'));
+
 	wp_enqueue_script('whatever-o-meter',
 			  plugins_url('/js/whatever-o-meter.min.js', __FILE__),
 			  array('jquery-ui-core', 'jquery-ui-widget',
@@ -266,7 +270,10 @@ function whatever_shortcode($atts) {
 	}
 
 	$again = plugins_url('/images/again.png', __FILE__);
-	$facebook = plugins_url('/images/facebook_box_blue.png', __FILE__);
+	$more = plugins_url('/images/more.png', __FILE__);
+	$facebook = plugins_url('/images/facebook.png', __FILE__);
+
+	$url = $custom['more'][0];
 
 	// Output the results panel
 
@@ -275,13 +282,13 @@ function whatever_shortcode($atts) {
     <input type=\"image\" src=\"$again\" alt=\"Again\" width=\"164\" class=\"again\" id=\"again\" />\n";
 
 	if ($custom['facebook-appid'])
-	    echo "    <input type=\"image\" src=\"$facebook\" alt=\"Facebook\" width=\"90\" class=\"facebook\" id=\"facebook\" />
-  </div>\n";
+	    echo "    <input type=\"image\" src=\"$facebook\" alt=\"Facebook\" width=\"90\" class=\"facebook\" id=\"facebook\" />\n";
 
-	else
-	    echo "  </div>\n";
+	if ($custom['more'])
+	    echo "    <a href=\"$url\"><img src=\"$more\" alt=\"Find Out More\" width=\"265\" id=\"more\" class=\"more\" /></a>\n";
 
-	echo "</div>\n";
+	echo "  </div>
+</div>\n";
 
 	// Debug output if defined
 
