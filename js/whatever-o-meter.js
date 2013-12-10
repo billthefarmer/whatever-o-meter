@@ -1,6 +1,6 @@
 // whatever-o-meter.js
 //
-// Version: 0.2
+// Version: 0.3
 // Author: Bill Farmer
 // Author http://billthefarmer.users.sourceforge.net
 
@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
     // $("input[type=image]").button();
 
     // Handle resizing
-
+    /*
     resize();
 
     $(window).resize(resize);
@@ -84,7 +84,7 @@ jQuery(document).ready(function($) {
 	}
 
     }
-
+    */
     // Define the function variables
 
     var panel = 0;
