@@ -70,6 +70,18 @@ function whatever_shortcode($atts) {
 
     if ($custom['question']) {
 
+	if ($custom['facebook-appid'])
+	    echo "<!-- whatever-o-meter facebook like -->
+<div class=\"fb-like\"
+     style=\"text-align: right; width: 100%;\"
+     data-layout=\"standard\"
+     data-action=\"like\"
+     data-show-faces=\"true\"
+     data-share=\"true\">
+</div>
+<br />
+<br />\n";
+
 	// Output the tacho dial
 ?>
 <!-- whatever-o-meter html -->
