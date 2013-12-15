@@ -70,7 +70,7 @@ function whatever_shortcode($atts) {
 
     if ($custom['question']) {
 
-	if ($custom['facebook-appid'])
+	if ($custom['fb-appid'])
 	    echo "<!-- whatever-o-meter facebook like -->
 <div class=\"fb-like\"
      style=\"text-align: center; width: 100%;\"
@@ -116,15 +116,20 @@ function whatever_shortcode($atts) {
 	<circle r="256" stroke="white" stroke-width="2" />
 	<circle r="250" stroke="#9a9a9a" fill="#9a9a9a" />
 	<!-- Coloured segments -->
-	<path d="M0,0 L-147,202 A250,250 1 0,1 -250,0 Z"
+	<path class="segment outer"
+	      d="M0,0 L-147,202 A250,250 1 0,1 -250,0 Z"
 	      stroke="#9b1d33" fill="#9b1d33" />
-	<path d="M0,0 L-250,0 A250,250 1 0,1 -125,-216 Z"
+	<path class="segment outer"
+	      d="M0,0 L-250,0 A250,250 1 0,1 -125,-216 Z"
 	      stroke="#c23c45" fill="#c23c45" />
-	<path d="M0,0 L-125,-216 A250,250 1 0,1 125,-216 Z"
+	<path class="segment outer"
+	      d="M0,0 L-125,-216 A250,250 1 0,1 125,-216 Z"
 	      stroke="#e47152" fill="#e47152" />
-	<path d="M0,0 L125,-216 A250,250 1 0,1 250,0 Z"
+	<path class="segment outer"
+	      d="M0,0 L125,-216 A250,250 1 0,1 250,0 Z"
 	      stroke="#e7eb63" fill="#e7eb63" />
-	<path d="M0,0 L250,0 A250,250 1 0,1 147,202 Z"
+	<path class="segment outer"
+	      d="M0,0 L250,0 A250,250 1 0,1 147,202 Z"
 	      stroke="#b2be34" fill="#b2be34" />
 	<!-- Inner black ring -->
 	<circle r="148" stroke="#1d1d1b" />
@@ -160,15 +165,20 @@ function whatever_shortcode($atts) {
 	<line x1="49" y1="-118" x2="55" y2="-132"
 	      stroke="white" stroke-width="2" />
 	<!-- Inner segments -->
-	<path d="M0,0 L-65,91 A112,112 1 0,1 -112,0 Z"
+	<path class="segment inner"
+	      d="M0,0 L-65,91 A112,112 1 0,1 -112,0 Z"
 	      stroke="#9b1d33" fill="#9b1d33" />
-	<path d="M0,0 L-112,0 A112,112 1 0,1 -56,-97 Z"
+	<path class="segment inner"
+	      d="M0,0 L-112,0 A112,112 1 0,1 -56,-97 Z"
 	      stroke="#c23c45" fill="#c23c45" />
-	<path d="M0,0 L-56,-97 A112,112 1 0,1 56,-97 Z"
+	<path class="segment inner"
+	      d="M0,0 L-56,-97 A112,112 1 0,1 56,-97 Z"
 	      stroke="#e47152" fill="#e47152" />
-	<path d="M0,0 L56,-97 A112,112 1 0,1 112,0 Z"
+	<path class="segment inner"
+	      d="M0,0 L56,-97 A112,112 1 0,1 112,0 Z"
 	      stroke="#e7eb63" fill="#e7eb63" />
-	<path d="M0,0 L112,0 A112,112 1 0,1 65,91 Z"
+	<path class="segment inner"
+	      d="M0,0 L112,0 A112,112 1 0,1 65,91 Z"
 	      stroke="#b2be34" fill="#b2be34" />
 	<!-- Warning lights -->
 	<circle cx="0" cy="200" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
@@ -294,7 +304,7 @@ function whatever_shortcode($atts) {
     <h3 id=\"answer\"></h3>
     <input type=\"image\" src=\"$again\" alt=\"Again\" width=\"164\" class=\"again\" id=\"again\" />\n";
 
-	if ($custom['facebook-appid'])
+	if ($custom['fb-appid'])
 	    echo "    <input type=\"image\" src=\"$facebook\" alt=\"Facebook\" width=\"83\" class=\"facebook\" id=\"facebook\" />\n";
 
 	if ($custom['more'])
@@ -330,37 +340,43 @@ function whatever_footer() {
 
     // Check the results are defined, not much point else
 
-    if ($custom['result']) {
+    if ($custom['result'])
+    {
+	// Create the array
+
+	$json_array= array('results' => $custom['result']);
 
 	// Get the variables
 
-	// $weights = 1;
-
 	if ($custom['weights'])
+	{
 	    $weights = explode(',', $custom['weights'][0]);
 
-	foreach ($weights as $key => $weight)
-	    $weights[$key] = floatval($weight);
+	    foreach ($weights as $key => $weight)
+		$weights[$key] = floatval($weight);
+
+	    $json_array['weights'] = $weights;
+	}
 
 	$results = $custom['result'];
 
 	if ($custom['duration'])
-	    $duration = intval($custom['duration'][0]);
+	    $json_array['duration'] = intval($custom['duration'][0]);
 
 	if ($custom['easing'])
 	    $easing = $custom['easing'][0];
 
-	if ($custom['facebook-appid'])
-	    $appid = $custom['facebook-appid'][0];
+	if ($custom['fb-appid'])
+	    $appid = $custom['fb-appid'][0];
 
-	if ($custom['facebook-caption'])
-	    $caption= $custom['facebook-caption'][0];
+	if ($custom['fb-caption'])
+	    $caption= $custom['fb-caption'][0];
 
-	if ($custom['facebook-description'])
-	    $description = $custom['facebook-description'][0];
+	if ($custom['fb-description'])
+	    $description = $custom['fb-description'][0];
 
-	if ($custom['facebook-picture'])
-	    $picture = $custom['facebook-picture'][0];
+	if ($custom['fb-picture'])
+	    $picture = $custom['fb-picture'][0];
 
 	$json_array= array('weights' => $weights, 'results' => $results,
 			   'duration' => $duration, 'easing' => $easing,
@@ -380,11 +396,11 @@ function whatever_footer() {
 
     // Check for facebook
 
-    if ($custom['facebook-appid']) {
+    if ($custom['fb-appid']) {
 
 	// Get the appid
 
-	$appid = $custom['facebook-appid'][0];
+	$appid = $custom['fb-appid'][0];
 
 	// Output the code
 
