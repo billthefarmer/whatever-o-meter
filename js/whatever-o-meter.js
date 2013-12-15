@@ -22,7 +22,7 @@ jQuery(document).ready(function($) {
     var weights = whatever_data["weights"];
     var easing = whatever_data["easing"];
     var duration = whatever_data["duration"];
-    var size = whatever_data["size"];
+    var colours = whatever_data["colours"];
 
     // Centre the header
 
@@ -38,12 +38,64 @@ jQuery(document).ready(function($) {
     $("div.slider").slider({range: "min", max: 20, min: -20,
 			    value: 0, step: 10});
 
-    // Don't need to set up image buttons
+    // Set up the buttons
 
-    // $("input[type=image]").button();
+    $("input[type=button]").each(function() {
 
-    // Handle resizing
+	$(this).button();
+	$(this).wrap('<div style="display: inline-block; border: solid palegoldenrod 8px; border-radius: 24px; margin: 4px;"></div>');
+	$(this).css("border", "solid white 4px");
+	$(this).css("border-radius", "16px");
+	$(this).css("background", "palegoldenrod");
+	$(this).css("text-align", "center");
+	$(this).css("vertical-align", "middle");
+	$(this).css("padding", "4px 24px");
+	$(this).css("font-family", "sans-serif");
+	$(this).css("font-size", "44px");
+	$(this).css("margin", "0");
+	$(this).css("cursor", "default");
+
+    });
+
+    // Handle colours
+
+    if (colours != null)
+    {
+	var length = colours.length;
+
+	// Outer segments
+
+	$("path.outer").each(function(i) {
+
+	    $(this).attr("fill", colours[i % length]);
+	    $(this).attr("stroke", colours[i % length]);
+	});
+
+	// Inner segments
+
+	$("path.inner").each(function(i) {
+
+	    $(this).attr("fill", colours[i % length]);
+	    $(this).attr("stroke", colours[i % length]);
+	});
+
+	// Gradients for highlights on warning lights
+
+	$("stop.left").attr("stop-color", colours[0]);
+	$("stop.centre").attr("stop-color", colours[2 % length]);
+	$("stop.right").attr("stop-color", colours[4 % length]);
+
+	// Warning lights
+
+	$("circle.left").attr("fill", colours[0]);
+	$("circle.centre").attr("fill", colours[2 % length]);
+	$("circle.right").attr("fill", colours[4 % length]);
+    }
+
+    // Handle resizing, commented out for now
     /*
+    var size = $("#whatever-o-meter").width();
+
     resize();
 
     $(window).resize(resize);
@@ -260,8 +312,7 @@ jQuery(document).ready(function($) {
 
 	var picture = whatever_data["picture"];
 	var caption = whatever_data["caption"]?
-	    whatever_data["caption"]:
-	    document.title;
+	    whatever_data["caption"]: document.title;
 	var description = whatever_data["description"]?
 	    whatever_data["description"].replace("%s", answer).replace("%d",
 								       digits):

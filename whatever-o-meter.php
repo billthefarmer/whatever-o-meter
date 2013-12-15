@@ -17,7 +17,7 @@
 
 // Add scripts hook, also adds shortcodes and further action
 
-add_action('wp_enqueue_scripts', 'whatever_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'whatever_enqueue_scripts', 11);
 
 // Queue scripts and styles. Wordpress includes jquery-ui script files,
 // but not all the styles
@@ -52,7 +52,7 @@ function whatever_enqueue_scripts() {
 	add_shortcode('whateverometer', 'whatever_shortcode');
 	add_shortcode('whatever-o-meter', 'whatever_shortcode');
 
-	add_action('wp_footer', 'whatever_footer');
+	add_action('wp_footer', 'whatever_footer', 11);
     }
 }
 
@@ -69,6 +69,8 @@ function whatever_shortcode($atts) {
     // Check there's at least one question defined, no point else
 
     if ($custom['question']) {
+
+	// Add facebook like button
 
 	if ($custom['fb-appid'])
 	    echo "<!-- whatever-o-meter facebook like -->
@@ -91,21 +93,21 @@ function whatever_shortcode($atts) {
     <svg id="tacho-dial" width="560" height="560">
       <!-- Gradients for highlights -->
       <defs>
-	<radialgradient id="radial" r="50%">
+	<radialgradient id="black" r="50%">
 	  <stop offset="0%" stop-color="white" />
 	  <stop offset="100%" stop-color="#1d1d1b" />
 	</radialgradient>
-	<radialgradient id="green" r="50%">
+	<radialgradient id="left" r="50%">
 	  <stop offset="0%" stop-color="white" />
-	  <stop offset="100%" stop-color="#b2be34" />
+	  <stop class="left" offset="100%" stop-color="firebrick" />
 	</radialgradient>
-	<radialgradient id="red" r="50%">
+	<radialgradient id="centre" r="50%">
 	  <stop offset="0%" stop-color="white" />
-	  <stop offset="100%" stop-color="#9d1b33" />
+	  <stop class="centre" offset="100%" stop-color="goldenrod" />
 	</radialgradient>
-	<radialgradient id="yellow" r="50%">
+	<radialgradient id="right" r="50%">
 	  <stop offset="0%" stop-color="white" />
-	  <stop offset="100%" stop-color="#e7eb63" />
+	  <stop class="right" offset="100%" stop-color="greenyellow" />
 	</radialgradient>
       </defs>
       <!-- Transform to the centre -->
@@ -118,19 +120,19 @@ function whatever_shortcode($atts) {
 	<!-- Coloured segments -->
 	<path class="segment outer"
 	      d="M0,0 L-147,202 A250,250 1 0,1 -250,0 Z"
-	      stroke="#9b1d33" fill="#9b1d33" />
+	      stroke="firebrick" fill="firebrick" />
 	<path class="segment outer"
 	      d="M0,0 L-250,0 A250,250 1 0,1 -125,-216 Z"
-	      stroke="#c23c45" fill="#c23c45" />
+	      stroke="darkorange" fill="darkorange" />
 	<path class="segment outer"
 	      d="M0,0 L-125,-216 A250,250 1 0,1 125,-216 Z"
-	      stroke="#e47152" fill="#e47152" />
+	      stroke="goldenrod" fill="goldenrod" />
 	<path class="segment outer"
 	      d="M0,0 L125,-216 A250,250 1 0,1 250,0 Z"
-	      stroke="#e7eb63" fill="#e7eb63" />
+	      stroke="gold" fill="gold" />
 	<path class="segment outer"
 	      d="M0,0 L250,0 A250,250 1 0,1 147,202 Z"
-	      stroke="#b2be34" fill="#b2be34" />
+	      stroke="greenyellow" fill="greenyellow" />
 	<!-- Inner black ring -->
 	<circle r="148" stroke="#1d1d1b" />
 	<circle r="120" stroke="white" stroke-width="6" />
@@ -167,29 +169,29 @@ function whatever_shortcode($atts) {
 	<!-- Inner segments -->
 	<path class="segment inner"
 	      d="M0,0 L-65,91 A112,112 1 0,1 -112,0 Z"
-	      stroke="#9b1d33" fill="#9b1d33" />
+	      stroke="firebrick" fill="firebrick" />
 	<path class="segment inner"
 	      d="M0,0 L-112,0 A112,112 1 0,1 -56,-97 Z"
-	      stroke="#c23c45" fill="#c23c45" />
+	      stroke="darkorange" fill="darkorange" />
 	<path class="segment inner"
 	      d="M0,0 L-56,-97 A112,112 1 0,1 56,-97 Z"
-	      stroke="#e47152" fill="#e47152" />
+	      stroke="goldenrod" fill="goldenrod" />
 	<path class="segment inner"
 	      d="M0,0 L56,-97 A112,112 1 0,1 112,0 Z"
-	      stroke="#e7eb63" fill="#e7eb63" />
+	      stroke="gold" fill="gold" />
 	<path class="segment inner"
 	      d="M0,0 L112,0 A112,112 1 0,1 65,91 Z"
-	      stroke="#b2be34" fill="#b2be34" />
+	      stroke="greenyellow" fill="greenyellow" />
 	<!-- Warning lights -->
-	<circle cx="0" cy="200" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
-	<circle cx="0" cy="200" r="11" stroke="#b2be34" fill="#b2be34" />
-	<circle cx="-4" cy="195" r="5" fill="url(#green)" />
-	<circle cx="-62" cy="190" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
-	<circle cx="-62" cy="190" r="11" stroke="#9b1d33" fill="#9b1d33" />
-	<circle cx="-66" cy="186" r="5" fill="url(#red)" />
-	<circle cx="62" cy="190" r="14" stroke="#1d1d1b" fill="#1d1d1b" />
-	<circle cx="62" cy="190" r="11" stroke="#e7eb63" fill="#e7eb63" />
-	<circle cx="58" cy="186" r="5" fill="url(#yellow)" />
+	<circle class="left" cx="-62" cy="190" r="13" stroke="#1d1d1b"
+		stroke-width="3" fill="firebrick" />
+	<circle cx="-66" cy="186" r="5" fill="url(#left)" />
+	<circle class="centre" cx="0" cy="200" r="13" stroke="#1d1d1b"
+		stroke-width="3" fill="goldenrod" />
+	<circle cx="-4" cy="195" r="5" fill="url(#centre)" />
+	<circle class="right" cx="62" cy="190" r="13" stroke="#1d1d1b"
+		stroke-width="3" fill="greenyellow" />
+	<circle cx="58" cy="186" r="5" fill="url(#right)" />
 	<!-- Od-o-meter -->
 	<rect x="-56" y="50" width="16" height="24"
 	      stroke="#3d3d3d" fill="#3d3d3d" />
@@ -219,7 +221,7 @@ function whatever_shortcode($atts) {
 	</g>
 	<!-- Pointer dome -->
 	<circle r="36" fill="#1d1d1b" stroke="#1d1d1b" />
-	<circle cx="-16" cy="-10" r="10" fill="url(#radial)" />
+	<circle cx="-16" cy="-10" r="10" fill="url(#black)" />
       </g>
     </svg>
   </div>
@@ -229,11 +231,10 @@ function whatever_shortcode($atts) {
 	// Output the intro panel
 
 	$intro = $custom['intro'][0];
-	$start = plugins_url('/images/start.png', __FILE__);
 
 	echo "\t<div id=\"first\" style=\"text-align: center\">
     <h3>$intro</h3>
-    <input type=\"image\" src=\"$start\" alt=\"Start\" width=\"164\" class=\"start\" id=\"start\" />
+    <input type=\"button\" value=\"Start\" class=\"start\" id=\"start\" />
   </div>\n";
 
 	$questions = $custom['question'];
@@ -241,10 +242,8 @@ function whatever_shortcode($atts) {
 	$centre_texts = $custom['centre'];
 	$right_texts = $custom['right'];
 
-	$length = count($questions);
-
-	$next = plugins_url('/images/next.png', __FILE__);
-	$results = plugins_url('/images/results.png', __FILE__);
+	$last = end($questions);
+	$last = each($questions);
 
 	$count = 1;
 
@@ -279,21 +278,19 @@ function whatever_shortcode($atts) {
     </div>
     <div style=\"width: 100%; clear: left; padding: 24px 0 0;\">\n";
 
-	    if ($key < $length - 1)
-		echo "\t<input type=\"image\" src=\"$next\" alt=\"Next\" width=\"164\" class=\"next\" id=\"next$count\" />
+	    if ($key < $last['key'])
+		echo "\t<input type=\"button\" value=\"Next\" class=\"next\" id=\"next$count\" />
     </div>
   </div>\n";
 
 	    else
-		echo "\t<input type=\"image\" src=\"$results\" alt=\"Get Results\" width=\"265\" class=\"result\" id=\"result\" />
+		echo "\t<input type=\"button\" value=\"Get Results\" class=\"result\" id=\"result\" />
     </div>
   </div>\n";
 
 	    $count++;
 	}
 
-	$again = plugins_url('/images/again.png', __FILE__);
-	$more = plugins_url('/images/more.png', __FILE__);
 	$facebook = plugins_url('/images/facebook.png', __FILE__);
 
 	$url = $custom['more'][0];
@@ -302,14 +299,14 @@ function whatever_shortcode($atts) {
 
 	echo "\t<div id=\"last\" style=\"display: none; text-align: center;\">
     <h3 id=\"answer\"></h3>
-    <input type=\"image\" src=\"$again\" alt=\"Again\" width=\"164\" class=\"again\" id=\"again\" />\n";
+    <input type=\"button\" value=\"Again\" class=\"again\" id=\"again\" />\n";
 
 	if ($custom['fb-appid'])
 	    echo "    <input type=\"image\" src=\"$facebook\" alt=\"Facebook\" width=\"83\" class=\"facebook\" id=\"facebook\" />\n";
 
 	if ($custom['more'])
 	    echo "    <br />
-    <a href=\"$url\"><img src=\"$more\" alt=\"Find Out More\" width=\"265\" id=\"more\" class=\"more\" /></a>\n";
+    <a href=\"$url\"><input type=\"button\" value=\"Find Out More\" id=\"more\" class=\"more\" /></a>\n";
 
 	echo "  </div>
 </div>\n";
@@ -344,9 +341,12 @@ function whatever_footer() {
     {
 	// Create the array
 
-	$json_array= array('results' => $custom['result']);
+	$json_array = array('results' => $custom['result']);
 
 	// Get the variables
+
+	if ($custom['colours'])
+	    $json_array['colours'] = explode(',', $custom['colours'][0]);
 
 	if ($custom['weights'])
 	{
@@ -358,31 +358,23 @@ function whatever_footer() {
 	    $json_array['weights'] = $weights;
 	}
 
-	$results = $custom['result'];
-
 	if ($custom['duration'])
 	    $json_array['duration'] = intval($custom['duration'][0]);
 
 	if ($custom['easing'])
-	    $easing = $custom['easing'][0];
+	    $json_array['easing'] = $custom['easing'][0];
 
 	if ($custom['fb-appid'])
-	    $appid = $custom['fb-appid'][0];
+	    $json_array['appid'] = $custom['fb-appid'][0];
 
 	if ($custom['fb-caption'])
-	    $caption= $custom['fb-caption'][0];
+	    $json_array['caption'] = $custom['fb-caption'][0];
 
 	if ($custom['fb-description'])
-	    $description = $custom['fb-description'][0];
+	    $json_array['description'] = $custom['fb-description'][0];
 
 	if ($custom['fb-picture'])
-	    $picture = $custom['fb-picture'][0];
-
-	$json_array= array('weights' => $weights, 'results' => $results,
-			   'duration' => $duration, 'easing' => $easing,
-			   'appid' => $appid, 'caption' => $caption,
-			   'description' => $description,
-			   'picture' => $picture, 'size' => 560);
+	    $json_array['picture'] = $custom['fb-picture'][0];
 
 	$json = json_encode($json_array);
 
