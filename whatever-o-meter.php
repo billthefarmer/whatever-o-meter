@@ -313,6 +313,8 @@ function whatever_shortcode($atts) {
 	echo "  </div>
 </div>\n";
 
+	// Facebook like below
+
 	if (strcmp($like, 'below') == 0)
 	    echo "<!-- whatever-o-meter facebook like -->
 <br />

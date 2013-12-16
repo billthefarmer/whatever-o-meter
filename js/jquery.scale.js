@@ -19,19 +19,19 @@
         }
         return false;
     }
+    $.cssNumber['scale'] = true;
     $.cssHooks['scale'] = {
         get: function(elem, computed, extra) {
             var property = getTransformProperty(elem);
             if (property) {
                 return elem.style[property].replace(/.*scale\((.*)\).*/, '$1');
             } else {
-                return '';
+                return 1;
             }
         },
         set: function(elem, value){
             var property = getTransformProperty(elem);
             if (property) {
-                value = parseFloat(value);
                 if (value == 0) {
                     elem.style[property] = '';
                 } else {

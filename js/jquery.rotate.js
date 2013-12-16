@@ -17,6 +17,7 @@
         }
         return false;
     }
+    $.cssNumber['rotate'] = true;
     $.cssHooks['rotate'] = {
         get: function(elem, computed, extra){
             var property = getTransformProperty(elem);
@@ -29,8 +30,6 @@
         set: function(elem, value){
             var property = getTransformProperty(elem);
             if (property) {
-                value = parseInt(value);
-                $(elem).data('rotatation', value);
                 if (value == 0) {
                     elem.style[property] = '';
                 } else {
