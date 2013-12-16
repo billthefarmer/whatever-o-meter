@@ -57,6 +57,8 @@ jQuery(document).ready(function($) {
 
     });
 
+    $("input[type=image]").css("vertical-align", "middle");
+
     // Handle colours
 
     if (colours != null)

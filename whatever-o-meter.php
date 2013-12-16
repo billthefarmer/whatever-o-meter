@@ -72,7 +72,9 @@ function whatever_shortcode($atts) {
 
 	// Add facebook like button
 
-	if ($custom['fb-appid'])
+	$like = $custom['fb-like'][0];
+
+	if (strcmp($like, 'above') == 0)
 	    echo "<!-- whatever-o-meter facebook like -->
 <div class=\"fb-like\"
      style=\"text-align: center; width: 100%;\"
@@ -309,6 +311,17 @@ function whatever_shortcode($atts) {
     <a href=\"$url\"><input type=\"button\" value=\"Find Out More\" id=\"more\" class=\"more\" /></a>\n";
 
 	echo "  </div>
+</div>\n";
+
+	if (strcmp($like, 'below') == 0)
+	    echo "<!-- whatever-o-meter facebook like -->
+<br />
+<div class=\"fb-like\"
+     style=\"text-align: center; width: 100%;\"
+     data-layout=\"standard\"
+     data-action=\"like\"
+     data-show-faces=\"true\"
+     data-share=\"true\">
 </div>\n";
 
 	// Debug output if defined
