@@ -241,7 +241,13 @@ function whatever_shortcode($atts) {
 
 	$questions = $custom['question'];
 	$left_texts = $custom['left'];
-	$centre_texts = $custom['centre'];
+
+	if ($custom['center'])
+	    $centre_texts = $custom['center'];
+
+	else
+	    $centre_texts = $custom['centre'];
+
 	$right_texts = $custom['right'];
 
 	$last = end($questions);
