@@ -3,7 +3,7 @@
  * Plugin Name: Whatever-o-meter
  * Plugin URI: http://billthefarmer.users.sourceforge.net/wordpress/whatever-o-meter
  * Description: Lets you create a whatever-o-meter using your data.
- * Version: 0.3
+ * Version: 0.31
  * Author: Bill Farmer
  * Author URI: http://billthefarmer.users.sourceforge.net
  * License: GPL2
