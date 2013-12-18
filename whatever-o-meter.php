@@ -360,6 +360,9 @@ function whatever_footer() {
 
 	// Get the variables
 
+	if ($custom['colors'])
+	    $json_array['colours'] = explode(',', $custom['colors'][0]);
+
 	if ($custom['colours'])
 	    $json_array['colours'] = explode(',', $custom['colours'][0]);
 
@@ -404,10 +407,6 @@ function whatever_footer() {
     // Check for facebook
 
     if ($custom['fb-appid']) {
-
-	// Get the appid
-
-	$appid = $custom['fb-appid'][0];
 
 	// Output the code
 
