@@ -1,6 +1,6 @@
 // whatever-o-meter.js
 //
-// Version: 0.3
+// Version: 0.4
 // Author: Bill Farmer
 // Author http://billthefarmer.users.sourceforge.net
 
