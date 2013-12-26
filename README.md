@@ -16,7 +16,7 @@ will not work, although the meter dial and intro text will appear.
 The plugin uses Wordpress custom fields to define the questions,
 results and a number of optional fields. The custom fields are:
 
-*intro*  The initial text that will appear on the panel below the tacho dial and above the start button.
+* _intro_  The initial text that will appear on the panel below the tacho dial and above the start button.
 *question*  Each question has it's own entry, as many as required within reason. They will be asked in the order given.
 *left*  Each text has it's own entry, as many as required. It will appear on the left below the slider. They will be displayed in the order given. There may be up to the same number of entries as questions. Optional, if not defined 'No' will appear
 *center*  Alternative spelling for them as can't spell.
