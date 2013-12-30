@@ -9,10 +9,11 @@ answered by moving a slider, shows one of several predefined results,
 and moves the tacho pointer to a position determined by the value of
 the result.
 
-The plugin uses a WordPress shortcode, [whatever-o-meter], or
-[whateverometer] to place the whatever-o-meter on the page. Only one
-shortcode should appear an any one Wordpress page, further appearences
-will not work, although the meter dial and intro text will appear.
+The plugin uses a WordPress shortcode, ***[whatever-o-meter]***, or
+***[whateverometer]*** to place the whatever-o-meter on the page. Only
+one shortcode should appear an any one Wordpress page, further
+appearences will not work, although the meter dial and intro text will
+appear.
 
 The plugin uses Wordpress custom fields to define the questions,
 results and a number of optional fields. The custom fields are:
@@ -46,17 +47,19 @@ results and a number of optional fields. The custom fields are:
   as questions. Optional, if not provided the weighting value for
   questions will default to 1.
 * **duration** The duration of the animation in
-  milliseconds. Optional, defaults to 2000. See JQuery docs.
+  milliseconds. Optional, defaults to 2000. See
+  [JQuery](http://api.jquery.com/animate) docs.
 * **easing** The easing function to be used for the dynamics of the
-  tacho dial pointer. Optional, defaults to 'easeOutQuad'. See JQuery
-  UI docs.
+  tacho dial pointer. Optional, defaults to 'easeOutQuad'. See
+  [JQuery UI](http://api.jqueryui.com/easings) docs.
 * **more** Optional, if this field is defined a Find Out More button
   will appear on the results panel. The field should contain a valid
   URL.
 * **fb-appid** Optional, if this field is defined a Facebook button
   will appear on the results panel which will show a Facebook feed
   dialog if clicked. The id must relate to an app defined on the
-  Facebook App Dashboard for your site.
+  [Facebook App Dashboard](https://developers.facebook.com/apps) for
+  your site.
 * **fb-caption** Optional, the caption you want to appear on the feed
   dialog. If not defined this will default to the page title.
 * **fb-description** Optional, the description you want to appear in
@@ -76,7 +79,7 @@ results and a number of optional fields. The custom fields are:
 * **colours** The colours you would like to appear in the dial
   segments and warning lights. Optional, should be a comma delimited
   list of five colours. any colour format in the CSS standard should
-  work: #XXX, #XXXXXX, goldenrod, rgb(r,g,b). Defaults to firebrick,
+  work: #abc, #abcdef, goldenrod, rgb(r,g,b). Defaults to firebrick,
   darkorange, goldenrod, gold, yellowgreen.
 * **debug** Causes the plugin to show the values of the custom fields
   below the whatever-o-meter for debugging if defined.
