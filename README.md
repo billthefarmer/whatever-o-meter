@@ -9,8 +9,8 @@ answered by moving a slider, shows one of several predefined results,
 and moves the tacho pointer to a position determined by the value of
 the result.
 
-The plugin uses a WordPress shortcode, ***[whatever-o-meter]***, or
-***[whateverometer]*** to place the whatever-o-meter on the page. Only
+The plugin uses a WordPress shortcode, **[whatever-o-meter]**, or
+**[whateverometer]** to place the whatever-o-meter on the page. Only
 one shortcode should appear an any one Wordpress page, further
 appearences will not work, although the meter dial and intro text will
 appear.
