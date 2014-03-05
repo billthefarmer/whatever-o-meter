@@ -64,15 +64,33 @@ jQuery(document).ready(function($) {
     if (colours != null)
     {
 	var length = colours.length;
-	var parts = [".background", ".foreground", ".digits", ".pointer"];
 
-	for (i in parts)
-	{
-	    $(parts[i]).attr("stroke", colours[i % length]);
+	// Background
 
-	    if (parts[i] != ".foreground")
-		$(parts[i]).attr("fill", colours[i % length]);
-	}
+	$("circle").attr("fill", colours[0 % length]);
+
+	// Ticks
+
+	$(".ticks").attr("stroke", colours[1 % length]);
+
+	// Digits
+
+	$(".digits").attr("stroke", colours[2 % length]);
+	$(".digits").attr("fill", colours[2 % length]);
+
+	// Pointer
+
+	$(".pointer").attr("stroke", colours[3 % length]);
+	$(".pointer").attr("fill", colours[3 % length]);
+
+	// Buttons
+
+	$("input[type=button]").each(function() {
+
+	    $(this).css("background", colours[4 % length]);
+	    $(this).parent().css("border-color", colours[4 % length]);
+
+	});
     }
 
     // Handle resizing, commented out for now

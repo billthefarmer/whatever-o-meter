@@ -93,7 +93,7 @@ function whatever_shortcode($atts) {
   <!-- SVG dial -->
   <svg id=\"tacho-dial\" width=\"560\" height=\"560\">
     <g  transform=\"translate(280,280)\">
-      <circle class=\"background\" r=\"280\" stroke=\"black\" />
+      <circle class=\"background\" r=\"280\" fill=\"black\" />
       <circle class=\"ticks\" r=\"272\" stroke=\"blue\" stroke-width=\"6\" />
       <circle class=\"ticks\" r=\"140\" stroke=\"blue\" stroke-width=\"6\" />
       <line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
