@@ -87,148 +87,69 @@ function whatever_shortcode($atts) {
 <br />\n";
 
 	// Output the tacho dial
-?>
-<!-- whatever-o-meter html -->
-<div id="whatever-o-meter" style="margin: 0 auto; width: 560px;">
-  <!-- SVG Dial -->
-  <div>
-    <svg id="tacho-dial" width="560" height="560">
-      <!-- Gradients for highlights -->
-      <defs>
-	<radialgradient id="black" r="50%">
-	  <stop offset="0%" stop-color="white" />
-	  <stop offset="100%" stop-color="#1d1d1b" />
-	</radialgradient>
-	<radialgradient id="left" r="50%">
-	  <stop offset="0%" stop-color="white" />
-	  <stop class="left" offset="100%" stop-color="firebrick" />
-	</radialgradient>
-	<radialgradient id="centre" r="50%">
-	  <stop offset="0%" stop-color="white" />
-	  <stop class="centre" offset="100%" stop-color="goldenrod" />
-	</radialgradient>
-	<radialgradient id="right" r="50%">
-	  <stop offset="0%" stop-color="white" />
-	  <stop class="right" offset="100%" stop-color="greenyellow" />
-	</radialgradient>
-      </defs>
-      <!-- Transform to the centre -->
-      <g id="tacho-group" transform="translate(280,280)">
-	<!-- Outer black ring -->
-	<circle r="280" stroke="#1d1d1b" />
-	<circle r="276" stroke="white" stroke-width="2" />
-	<circle r="256" stroke="white" stroke-width="2" />
-	<circle r="250" stroke="#9a9a9a" fill="#9a9a9a" />
-	<!-- Coloured segments -->
-	<path class="segment outer"
-	      d="M0,0 L-147,202 A250,250 1 0,1 -250,0 Z"
-	      stroke="firebrick" fill="firebrick" />
-	<path class="segment outer"
-	      d="M0,0 L-250,0 A250,250 1 0,1 -125,-216 Z"
-	      stroke="darkorange" fill="darkorange" />
-	<path class="segment outer"
-	      d="M0,0 L-125,-216 A250,250 1 0,1 125,-216 Z"
-	      stroke="goldenrod" fill="goldenrod" />
-	<path class="segment outer"
-	      d="M0,0 L125,-216 A250,250 1 0,1 250,0 Z"
-	      stroke="gold" fill="gold" />
-	<path class="segment outer"
-	      d="M0,0 L250,0 A250,250 1 0,1 147,202 Z"
-	      stroke="greenyellow" fill="greenyellow" />
-	<!-- Inner black ring -->
-	<circle r="148" stroke="#1d1d1b" />
-	<circle r="120" stroke="white" stroke-width="6" />
-	<circle r="112" stroke="#9a9a9a" fill="#9a9a9a" />
-	<!-- Ticks -->
-	<line x1="-128" y1="0" x2="-144" y2="0"
-	      stroke="white" stroke-width="5" />
-	<line x1="0" y1="-128" x2="0" y2="-144"
-	      stroke="white" stroke-width="5" />
-	<line x1="128" y1="0" x2="144" y2="0"
-	      stroke="white" stroke-width="5" />
-	<line x1="0" y1="128" x2="0" y2="144"
-	      stroke="white" stroke-width="2" />
-	<line x1="-90" y1="90" x2="-101" y2="101"
-	      stroke="white" stroke-width="5" />
-	<line x1="-90" y1="-90" x2="-101" y2="-101"
-	      stroke="white" stroke-width="5" />
-	<line x1="90" y1="-90" x2="101" y2="-101"
-	      stroke="white" stroke-width="5" />
-	<line x1="90" y1="90" x2="101" y2="101"
-	      stroke="white" stroke-width="5" />
-	<line x1="-118" y1="49" x2="-132" y2="55"
-	      stroke="white" stroke-width="2" />
-	<line x1="-118" y1="-49" x2="-132" y2="-55"
-	      stroke="white" stroke-width="2" />
-	<line x1="118" y1="49" x2="132" y2="55"
-	      stroke="white" stroke-width="2" />
-	<line x1="118" y1="-49" x2="132" y2="-55"
-	      stroke="white" stroke-width="2" />
-	<line x1="-49" y1="-118" x2="-55" y2="-132"
-	      stroke="white" stroke-width="2" />
-	<line x1="49" y1="-118" x2="55" y2="-132"
-	      stroke="white" stroke-width="2" />
-	<!-- Inner segments -->
-	<path class="segment inner"
-	      d="M0,0 L-65,91 A112,112 1 0,1 -112,0 Z"
-	      stroke="firebrick" fill="firebrick" />
-	<path class="segment inner"
-	      d="M0,0 L-112,0 A112,112 1 0,1 -56,-97 Z"
-	      stroke="darkorange" fill="darkorange" />
-	<path class="segment inner"
-	      d="M0,0 L-56,-97 A112,112 1 0,1 56,-97 Z"
-	      stroke="goldenrod" fill="goldenrod" />
-	<path class="segment inner"
-	      d="M0,0 L56,-97 A112,112 1 0,1 112,0 Z"
-	      stroke="gold" fill="gold" />
-	<path class="segment inner"
-	      d="M0,0 L112,0 A112,112 1 0,1 65,91 Z"
-	      stroke="greenyellow" fill="greenyellow" />
-	<!-- Warning lights -->
-	<circle class="left" cx="-62" cy="190" r="13" stroke="#1d1d1b"
-		stroke-width="3" fill="firebrick" />
-	<circle cx="-66" cy="186" r="5" fill="url(#left)" />
-	<circle class="centre" cx="0" cy="200" r="13" stroke="#1d1d1b"
-		stroke-width="3" fill="goldenrod" />
-	<circle cx="-4" cy="195" r="5" fill="url(#centre)" />
-	<circle class="right" cx="62" cy="190" r="13" stroke="#1d1d1b"
-		stroke-width="3" fill="greenyellow" />
-	<circle cx="58" cy="186" r="5" fill="url(#right)" />
-	<!-- Od-o-meter -->
-	<rect x="-56" y="50" width="16" height="24"
-	      stroke="#3d3d3d" fill="#3d3d3d" />
-	<rect x="-32" y="50" width="16" height="24"
-	      stroke="#3d3d3d" fill="#3d3d3d" />
-	<rect x="-8" y="50" width="16" height="24"
-	      stroke="#3d3d3d" fill="#3d3d3d" />
-	<rect x="16" y="50" width="16" height="24"
-	      stroke="#3d3d3d" fill="#3d3d3d" />
-	<rect x="40" y="50" width="16" height="24"
-	      stroke="#3d3d3d" fill="#3d3d3d" />
-	<!-- Od-o-meter digits -->
-	<text id="digit-1" class="digit" x="-55" y="70" font-size="24"
-	      stroke="white" fill="white">0</text>
-	<text id="digit-2" class="digit" x="-31" y="70" font-size="24"
-	      stroke="white" fill="white">0</text>
-	<text id="digit-3" class="digit" x="-7" y="70" font-size="24"
-	      stroke="white" fill="white">0</text>
-	<text id="digit-4" class="digit" x="17" y="70" font-size="24"
-	      stroke="white" fill="white">0</text>
-	<text id="digit-5" class="digit" x="41" y="70" font-size="24"
-	      stroke="white" fill="white">0</text>
-	<!-- Pointer -->
-	<g id="pointer">
-	  <path d="M0,64 L8,56 L3,-196 L0,-200 L-3,-196 L-8,56 Z"
-		fill="#ede4c7" stroke="#1d1d1b" />
-	</g>
-	<!-- Pointer dome -->
-	<circle r="36" fill="#1d1d1b" stroke="#1d1d1b" />
-	<circle cx="-16" cy="-10" r="10" fill="url(#black)" />
+
+	echo "\n<!-- whatever-o-meter html -->
+<div id=\"whatever-o-meter\" style=\"margin: 0 auto; width: 560px;\">
+  <!-- SVG dial -->
+  <svg id=\"tacho-dial\" width=\"560\" height=\"560\">
+    <g  transform=\"translate(280,280)\">
+      <circle class=\"background\" r=\"280\" stroke=\"black\" />
+      <circle class=\"ticks\" r=\"272\" stroke=\"blue\" stroke-width=\"6\" />
+      <circle class=\"ticks\" r=\"140\" stroke=\"blue\" stroke-width=\"6\" />
+      <line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
+	    stroke=\"blue\" stroke-width=\"6\" />
+      <line class=\"ticks\" x1=\"0\" y1=\"-108\" x2=\"0\" y2=\"-138\"
+	    stroke=\"blue\" stroke-width=\"4\" />\n";
+
+	for ($i = 28; $i <= 140; $i += 28)
+	{
+	    echo "<g transform=\"rotate($i)\">\n";
+	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
+		stroke=\"blue\" stroke-width=\"6\" />\n";
+	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-108\" x2=\"0\" y2=\"-138\"
+		stroke=\"blue\" stroke-width=\"4\" />\n";
+	    for ($j = 5.6; $j < 28; $j += 5.6)
+	    {
+		echo "<line class=\"ticks\" x1=\"0\" y1=\"-242\" x2=\"0\" y2=\"-272\"
+		  stroke=\"blue\" stroke-width=\"2\" transform=\"rotate(-$j)\" />\n";
+	    }
+	    echo "</g>\n";
+
+	    echo "<g transform=\"rotate(-$i)\">\n";
+	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
+		stroke=\"blue\" stroke-width=\"6\" />\n";
+	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-108\" x2=\"0\" y2=\"-138\"
+		stroke=\"blue\" stroke-width=\"4\" />\n";
+	    for ($j = 5.6; $j < 28; $j += 5.6)
+	    {
+		echo "<line class=\"ticks\" x1=\"0\" y1=\"-242\" x2=\"0\" y2=\"-272\"
+		  stroke=\"blue\" stroke-width=\"2\" transform=\"rotate($j)\" />\n";
+	    }
+	    echo "</g>\n";
+	}
+
+	// Digits
+
+	echo "<!-- Od-o-meter digits -->
+          <text class=\"digits\" id=\"digit-1\" x=\"-72\" y=\"82\" font-size=\"48\"
+		stroke=\"red\" fill=\"red\">0</text>
+	  <text class=\"digits\" id=\"digit-2\" x=\"-42\" y=\"82\" font-size=\"48\"
+		stroke=\"red\" fill=\"red\">0</text>
+	  <text class=\"digits\" id=\"digit-3\" x=\"-12\" y=\"82\" font-size=\"48\"
+		stroke=\"red\" fill=\"red\">0</text>
+	  <text class=\"digits\" id=\"digit-4\" x=\"18\" y=\"82\" font-size=\"48\"
+		stroke=\"red\" fill=\"red\">0</text>
+	  <text class=\"digits\" id=\"digit-5\" x=\"48\" y=\"82\" font-size=\"48\"
+		stroke=\"red\" fill=\"red\">0</text>\n";
+
+	// Pointer
+
+	echo "<!-- Pointer -->
+          <path d=\"M0,64 L8,56 L3,-196 L0,-200 L-3,-196 L-8,56 Z\"
+		  fill=\"red\" class=\"pointer\" id=\"pointer\" />
+	  <circle class=\"pointer\" r=\"20\" fill=\"red\" />
       </g>
-    </svg>
-  </div>
-  <br />
-<?php
+  </svg>\n";
 
 	// Output the intro panel
 
