@@ -64,34 +64,15 @@ jQuery(document).ready(function($) {
     if (colours != null)
     {
 	var length = colours.length;
+	var parts = [".background", ".foreground", ".digits", ".pointer"];
 
-	// Outer segments
+	for (i in parts)
+	{
+	    $(parts[i]).attr("stroke", colours[i % length]);
 
-	$("path.outer").each(function(i) {
-
-	    $(this).attr("fill", colours[i % length]);
-	    $(this).attr("stroke", colours[i % length]);
-	});
-
-	// Inner segments
-
-	$("path.inner").each(function(i) {
-
-	    $(this).attr("fill", colours[i % length]);
-	    $(this).attr("stroke", colours[i % length]);
-	});
-
-	// Gradients for highlights on warning lights
-
-	$("stop.left").attr("stop-color", colours[0]);
-	$("stop.centre").attr("stop-color", colours[2 % length]);
-	$("stop.right").attr("stop-color", colours[4 % length]);
-
-	// Warning lights
-
-	$("circle.left").attr("fill", colours[0]);
-	$("circle.centre").attr("fill", colours[2 % length]);
-	$("circle.right").attr("fill", colours[4 % length]);
+	    if (parts[i] != ".foreground")
+		$(parts[i]).attr("fill", colours[i % length]);
+	}
     }
 
     // Handle resizing, commented out for now
