@@ -93,37 +93,37 @@ function whatever_shortcode($atts) {
   <!-- SVG dial -->
   <svg id=\"tacho-dial\" width=\"560\" height=\"560\">
     <g  transform=\"translate(280,280)\">
-      <circle class=\"background\" r=\"280\" fill=\"black\" />
-      <circle class=\"ticks\" r=\"272\" stroke=\"blue\" stroke-width=\"6\" />
-      <circle class=\"ticks\" r=\"140\" stroke=\"blue\" stroke-width=\"6\" />
+      <circle class=\"background\" r=\"280\" fill=\"palegoldenrod\" />
+      <circle class=\"ticks\" r=\"272\" stroke=\"black\" fill=\"palegoldenrod\" stroke-width=\"6\" />
+      <circle class=\"ticks\" r=\"140\" stroke=\"black\" fill=\"palegoldenrod\" stroke-width=\"6\" />
       <line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
-	    stroke=\"blue\" stroke-width=\"6\" />
+	    stroke=\"black\" stroke-width=\"6\" />
       <line class=\"ticks\" x1=\"0\" y1=\"-108\" x2=\"0\" y2=\"-138\"
-	    stroke=\"blue\" stroke-width=\"4\" />\n";
+	    stroke=\"black\" stroke-width=\"4\" />\n";
 
 	for ($i = 28; $i <= 140; $i += 28)
 	{
 	    echo "<g transform=\"rotate($i)\">\n";
 	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
-		stroke=\"blue\" stroke-width=\"6\" />\n";
+		stroke=\"black\" stroke-width=\"6\" />\n";
 	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-108\" x2=\"0\" y2=\"-138\"
-		stroke=\"blue\" stroke-width=\"4\" />\n";
+		stroke=\"black\" stroke-width=\"4\" />\n";
 	    for ($j = 5.6; $j < 28; $j += 5.6)
 	    {
 		echo "<line class=\"ticks\" x1=\"0\" y1=\"-242\" x2=\"0\" y2=\"-272\"
-		  stroke=\"blue\" stroke-width=\"2\" transform=\"rotate(-$j)\" />\n";
+		  stroke=\"black\" stroke-width=\"2\" transform=\"rotate(-$j)\" />\n";
 	    }
 	    echo "</g>\n";
 
 	    echo "<g transform=\"rotate(-$i)\">\n";
 	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-212\" x2=\"0\" y2=\"-272\"
-		stroke=\"blue\" stroke-width=\"6\" />\n";
+		stroke=\"black\" stroke-width=\"6\" />\n";
 	    echo "<line class=\"ticks\" x1=\"0\" y1=\"-108\" x2=\"0\" y2=\"-138\"
-		stroke=\"blue\" stroke-width=\"4\" />\n";
+		stroke=\"black\" stroke-width=\"4\" />\n";
 	    for ($j = 5.6; $j < 28; $j += 5.6)
 	    {
 		echo "<line class=\"ticks\" x1=\"0\" y1=\"-242\" x2=\"0\" y2=\"-272\"
-		  stroke=\"blue\" stroke-width=\"2\" transform=\"rotate($j)\" />\n";
+		  stroke=\"black\" stroke-width=\"2\" transform=\"rotate($j)\" />\n";
 	    }
 	    echo "</g>\n";
 	}
@@ -132,22 +132,22 @@ function whatever_shortcode($atts) {
 
 	echo "<!-- Od-o-meter digits -->
           <text class=\"digits\" id=\"digit-1\" x=\"-72\" y=\"82\" font-size=\"48\"
-		stroke=\"red\" fill=\"red\">0</text>
+		stroke=\"black\" fill=\"black\">0</text>
 	  <text class=\"digits\" id=\"digit-2\" x=\"-42\" y=\"82\" font-size=\"48\"
-		stroke=\"red\" fill=\"red\">0</text>
+		stroke=\"black\" fill=\"black\">0</text>
 	  <text class=\"digits\" id=\"digit-3\" x=\"-12\" y=\"82\" font-size=\"48\"
-		stroke=\"red\" fill=\"red\">0</text>
+		stroke=\"black\" fill=\"black\">0</text>
 	  <text class=\"digits\" id=\"digit-4\" x=\"18\" y=\"82\" font-size=\"48\"
-		stroke=\"red\" fill=\"red\">0</text>
+		stroke=\"black\" fill=\"black\">0</text>
 	  <text class=\"digits\" id=\"digit-5\" x=\"48\" y=\"82\" font-size=\"48\"
-		stroke=\"red\" fill=\"red\">0</text>\n";
+		stroke=\"black\" fill=\"black\">0</text>\n";
 
 	// Pointer
 
 	echo "<!-- Pointer -->
           <path d=\"M0,64 L8,56 L3,-196 L0,-200 L-3,-196 L-8,56 Z\"
-		  fill=\"red\" class=\"pointer\" id=\"pointer\" />
-	  <circle class=\"pointer\" r=\"20\" fill=\"red\" />
+		  fill=\"black\" class=\"pointer\" id=\"pointer\" />
+	  <circle class=\"pointer\" r=\"20\" fill=\"black\" />
       </g>
   </svg>\n";
 
