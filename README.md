@@ -12,7 +12,7 @@ the result.
 The plugin uses a WordPress shortcode, **[whatever-o-meter]**, or
 **[whateverometer]** to place the whatever-o-meter on the page. Only
 one shortcode should appear an any one Wordpress page, further
-appearences will not work, although the meter dial and intro text will
+appearances will not work, although the meter dial and intro text will
 appear.
 
 The plugin uses Wordpress custom fields to define the questions,
@@ -76,10 +76,11 @@ results and a number of optional fields. The custom fields are:
   buttons are a standard Facebook plugin and will not use information
   from the fields above.
 * **colors** Alternative spelling for them as can't spell.
-* **colours** The colours you would like to appear in the dial
-  segments and warning lights. Optional, should be a comma delimited
-  list of five colours. any colour format in the CSS standard should
-  work: #abc, #abcdef, goldenrod, rgb(r,g,b). Defaults to firebrick,
-  darkorange, goldenrod, gold, yellowgreen.
+* **colours** The colours you would like to appear in the dial and
+  buttons. Optional, should be a comma delimited list of five
+  colours. The colours are the dial background colour, ticks, digits,
+  pointer, buttons, any colour format in the CSS standard should work:
+  #abc, #abcdef, goldenrod, rgb(r,g,b). Defaults to palegoldenrod,
+  black, black, black, palegoldenrod.
 * **debug** Causes the plugin to show the values of the custom fields
   below the whatever-o-meter for debugging if defined.
