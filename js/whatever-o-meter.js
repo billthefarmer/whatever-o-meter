@@ -1,6 +1,6 @@
 // whatever-o-meter.js
 //
-// Version: 0.4
+// Version: 0.5
 // Author: Bill Farmer
 // Author http://billthefarmer.users.sourceforge.net
 
@@ -18,11 +18,21 @@ jQuery(document).ready(function($) {
     // Get data from the PHP script which originated as custom fields
     // on the page
 
-    var results = whatever_data["results"];
-    var weights = whatever_data["weights"];
-    var easing = whatever_data["easing"];
-    var duration = whatever_data["duration"];
-    var colours = whatever_data["colours"];
+    try
+    {
+	var results = whatever_data["results"];
+	var weights = whatever_data["weights"];
+	var easing = whatever_data["easing"];
+	var duration = whatever_data["duration"];
+	var colours = whatever_data["colours"];
+    }
+
+    // Return if exception
+
+    catch (e)
+    {
+	return;
+    }
 
     // Centre the header
 
