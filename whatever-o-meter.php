@@ -70,6 +70,28 @@ function whatever_shortcode($atts) {
 
     if ($custom['question']) {
 
+	// Add addthis buttons
+
+	$addthis = $custom['addthis'][0];
+
+	if (strcmp($addthis, 'above') == 0)
+	{
+	    $url = get_permalink();
+	    $title = get_the_title();
+
+	    echo "<!-- whatever-o-meter addthis toolbox -->
+<div class=\"addthis_toolbox addthis_default_style\"
+     style=\"margin: 0 auto; width: 480px;\"
+     addthis:url='$url'
+     addthis:title='$title'>
+  <a class=\"addthis_button_facebook_like\"></a>
+  <a class=\"addthis_button_tweet\"></a>
+  <a class=\"addthis_button_pinterest_pinit\"></a>
+  <a class=\"addthis_button_google_plusone\" g:plusone:size=\"medium\"></a>
+  <a class=\"addthis_counter addthis_pill_style\"></a>
+</div>\n";
+	}
+
 	// Add facebook like button
 
 	$like = $custom['fb-like'][0];
@@ -239,6 +261,26 @@ function whatever_shortcode($atts) {
 
 	echo "  </div>
 </div>\n";
+
+	// Add addthis toolbox below
+
+	if (strcmp($addthis, 'below') == 0)
+	{
+	    $url = get_permalink();
+	    $title = get_the_title();
+
+	    echo "<!-- whatever-o-meter addthis toolbox -->
+<div class=\"addthis_toolbox addthis_default_style\"
+     style=\"margin: 0 auto; width: 480px;\"
+     addthis:url='$url'
+     addthis:title='$title'>
+  <a class=\"addthis_button_facebook_like\"></a>
+  <a class=\"addthis_button_tweet\"></a>
+  <a class=\"addthis_button_pinterest_pinit\"></a>
+  <a class=\"addthis_button_google_plusone\" g:plusone:size=\"medium\"></a>
+  <a class=\"addthis_counter addthis_pill_style\"></a>
+</div>\n";
+	}
 
 	// Facebook like below
 
