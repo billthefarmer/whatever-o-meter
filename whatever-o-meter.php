@@ -3,7 +3,7 @@
  * Plugin Name: Whatever-o-meter
  * Plugin URI: http://billthefarmer.users.sourceforge.net/wordpress/whatever-o-meter
  * Description: Lets you create a whatever-o-meter using your data.
- * Version: 0.5
+ * Version: 0.6
  * Author: Bill Farmer
  * Author URI: http://billthefarmer.users.sourceforge.net
  * License: GPL2
@@ -79,7 +79,7 @@ function whatever_shortcode($atts) {
 	    $url = get_permalink();
 	    $title = get_the_title();
 
-	    echo "<!-- whatever-o-meter addthis toolbox -->
+	    echo "\n<!-- whatever-o-meter addthis toolbox -->
 <div class=\"addthis_toolbox addthis_default_style\"
      style=\"margin: 0 auto; width: 480px;\"
      addthis:url='$url'
@@ -97,7 +97,7 @@ function whatever_shortcode($atts) {
 	$like = $custom['fb-like'][0];
 
 	if (strcmp($like, 'above') == 0)
-	    echo "<!-- whatever-o-meter facebook like -->
+	    echo "\n<!-- whatever-o-meter facebook like -->
 <div class=\"fb-like\"
      style=\"text-align: center; width: 100%;\"
      data-layout=\"standard\"
@@ -269,7 +269,7 @@ function whatever_shortcode($atts) {
 	    $url = get_permalink();
 	    $title = get_the_title();
 
-	    echo "<!-- whatever-o-meter addthis toolbox -->
+	    echo "\n<!-- whatever-o-meter addthis toolbox -->
 <div class=\"addthis_toolbox addthis_default_style\"
      style=\"margin: 0 auto; width: 480px;\"
      addthis:url='$url'
@@ -285,7 +285,7 @@ function whatever_shortcode($atts) {
 	// Facebook like below
 
 	if (strcmp($like, 'below') == 0)
-	    echo "<!-- whatever-o-meter facebook like -->
+	    echo "\n<!-- whatever-o-meter facebook like -->
 <br />
 <div class=\"fb-like\"
      style=\"text-align: center; width: 100%;\"
@@ -367,7 +367,7 @@ function whatever_footer() {
 
 	// Output the javascript
 
-	echo "<!-- whatever-o-meter javascript data -->
+	echo "\n<!-- whatever-o-meter javascript data -->
 <script type=\"text/javascript\">
     var whatever_data = $json;
 </script>\n\n";
@@ -379,7 +379,7 @@ function whatever_footer() {
 
 	// Output the code
 
-	echo "<!-- whatever-o-meter facebook -->
+	echo "\n<!-- whatever-o-meter facebook -->
 <div id=\"fb-root\"></div>\n";
 
     }
