@@ -89,7 +89,8 @@ function whatever_shortcode($atts) {
   <a class=\"addthis_button_pinterest_pinit\"></a>
   <a class=\"addthis_button_google_plusone\" g:plusone:size=\"medium\"></a>
   <a class=\"addthis_counter addthis_pill_style\"></a>
-</div>\n";
+</div>
+<br />\n";
 	}
 
 	// Add facebook like button
