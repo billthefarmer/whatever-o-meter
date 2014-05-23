@@ -271,6 +271,7 @@ function whatever_shortcode($atts) {
 	    $title = get_the_title();
 
 	    echo "\n<!-- whatever-o-meter addthis toolbox -->
+<br />
 <div class=\"addthis_toolbox addthis_default_style\"
      style=\"margin: 0 auto; width: 480px;\"
      addthis:url='$url'
