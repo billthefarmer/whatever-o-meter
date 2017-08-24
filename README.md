@@ -2,22 +2,23 @@ Whatever-o-meter
 ================
 ![Whatever-o-meter](https://raw.github.com/billthefarmer/whatever/master/wordpress/images/Whatever.png)
 
-Description
------------
-Whatever-o-meter is a WordPress plugin that shows a tachometer-like
-dial with a pointer, asks a series of predefined questions which are
-answered by moving a slider, shows one of several predefined results,
-and moves the tacho pointer to a position determined by the value of
-the result.
+## Description
 
-The plugin uses a WordPress shortcode, **[whatever-o-meter]**, or
-**[whateverometer]** to place the whatever-o-meter on the page. Only
-one shortcode should appear an any one Wordpress page, further
-appearances will not work, although the meter dial and intro text will
-appear.
+Whatever-o-meter is a WordPress plugin and Hugo shortcode that shows a
+tachometer-like dial with a pointer, asks a series of predefined
+questions which are answered by moving a slider, shows one of several
+predefined results, and moves the tacho pointer to a position
+determined by the value of the result.
 
-The plugin uses Wordpress custom fields to define the questions,
-results and a number of optional fields. The custom fields are:
+The plugin uses a WordPress shortcode, **[whatever-o-meter]**, or Hugo
+shortcode {{< whatever-o-meter >}} to place the whatever-o-meter on
+the page. Only one shortcode should appear an any one Wordpress or
+Hugo page, further appearances will not work, although the meter dial
+and intro text will appear.
+
+The plugin uses Wordpress custom fields or Hugo front matter
+parameters to define the questions, results and a number of optional
+fields. The custom fields or parameters are:
 
 * **intro** The initial text that will appear on the panel below the
   tacho dial and above the start button.
@@ -85,3 +86,15 @@ results and a number of optional fields. The custom fields are:
   black, black, black, palegoldenrod.
 * **debug** Causes the plugin to show the values of the custom fields
   below the whatever-o-meter for debugging if defined.
+
+In the Hugo version parameters with a single value are defined as just
+one item, parameters with multiple values are shown as an array.
+
+```yaml
+intro: Please answer the following questions carefully and truthfully.
+question:
+  - You are lying in bed on Monday morning...
+weights: 2,1,1,1,1
+```
+
+The facebook functionality is not implemented in Hugo.
