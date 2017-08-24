@@ -1,6 +1,7 @@
 Whatever-o-meter
 ================
-![Whatever-o-meter](https://raw.github.com/billthefarmer/whatever/master/images/Whatever.png)
+![Whatever-o-meter](https://raw.github.com/billthefarmer/whatever/master/wordpress/images/Whatever.png)
+
 Description
 -----------
 Whatever-o-meter is a WordPress plugin that shows a tachometer-like
