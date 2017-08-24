@@ -3,7 +3,6 @@ Whatever-o-meter
 ![Whatever-o-meter](https://raw.github.com/billthefarmer/whatever/master/wordpress/images/Whatever.png)
 
 ## Description
-
 Whatever-o-meter is a WordPress plugin and Hugo shortcode that shows a
 tachometer-like dial with a pointer, asks a series of predefined
 questions which are answered by moving a slider, shows one of several
@@ -87,6 +86,7 @@ fields. The custom fields or parameters are:
 * **debug** Causes the plugin to show the values of the custom fields
   below the whatever-o-meter for debugging if defined.
 
+### Hugo
 In the Hugo version parameters with a single value are defined as just
 one item, parameters with multiple values are shown as an array.
 
