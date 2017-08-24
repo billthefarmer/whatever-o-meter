@@ -1,0 +1,20 @@
+<!--
+    Create <project-root>/layouts/partials/head-custom.html to
+    overwrite this empty template and put custom code into the <head>
+    section.
+  -->
+<!-- Check at least one question -->
+{{ if isset .Params "question" }}
+<!-- Whatever-o-meter css -->
+<link href="{{ absURL "css/jquery-ui.min.css" }}" rel="stylesheet">
+
+<!-- Whatever-o-meter js -->
+<script type="text/javascript"
+        src="{{ absURL "js/jquery-3.2.1.min.js" }}"></script>
+<script type="text/javascript"
+        src="{{ absURL "js/jquery-ui.min.js" }}"></script>
+<script type="text/javascript"
+        src="{{ absURL "js/jquery.rotate.min.js" }}"></script>
+<script type="text/javascript"
+        src="{{ absURL "js/whatever-o-meter.min.js" }}"></script>
+{{ end }}
