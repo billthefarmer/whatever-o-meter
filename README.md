@@ -97,4 +97,4 @@ question:
 weights: 2,1,1,1,1
 ```
 
-The facebook functionality is not implemented in Hugo.
+The facebook and debug functionality is not implemented in Hugo.
