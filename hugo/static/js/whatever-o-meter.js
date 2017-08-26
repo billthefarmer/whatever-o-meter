@@ -15,6 +15,11 @@ jQuery(document).ready(function($) {
     // and other libraries also using $ will not be accessible under
     // this shortcut
 
+    // Calculate scaling factors for pointer
+
+    var range = 150;
+    var scale = range / 20;
+
     // Get data from the PHP script which originated as custom fields
     // on the page
 
@@ -41,7 +46,7 @@ jQuery(document).ready(function($) {
     // The pointer is drawn pointing to 12 o'clock, Rotate it to the
     // start position
 
-    $("#pointer").css("rotate", -140);
+    $("#pointer").css("rotate", -range);
 
     // Set up the sliders
 
@@ -177,7 +182,7 @@ jQuery(document).ready(function($) {
 
         // Animate the pointer
 
-        $("#pointer").animate({rotate: value * 7},
+        $("#pointer").animate({rotate: value * scale},
 			      (duration == null)? 2000: duration,
 			      (easing == null)? "easeOutQuad": easing);
 
@@ -236,7 +241,7 @@ jQuery(document).ready(function($) {
 
         // Wind the pointer back
 
-        $("#pointer").animate({rotate: -140},
+        $("#pointer").animate({rotate: -range},
 			      2000, "easeOutQuad");
         $("#last").slideUp();
         $("#first").slideDown();
