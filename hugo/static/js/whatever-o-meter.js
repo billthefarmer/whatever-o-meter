@@ -143,7 +143,7 @@ jQuery(document).ready(function($) {
         {
             value += $("#value-" + panel).slider("value") *
 	        weights[index];
-            total += weights[index] * 1;
+            total += +weights[index];
         }
 
         panel++;
@@ -173,7 +173,7 @@ jQuery(document).ready(function($) {
         {
             value += $("#value-" + panel).slider("value") *
 	        weights[index];
-            total += weights[index] * 1;
+            total += +weights[index];
         }
 
         // Get the value divided by the total weights
