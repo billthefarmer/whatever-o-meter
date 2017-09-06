@@ -23,13 +23,13 @@
 	    stroke="black" stroke-width="6" />
       <line class="ticks" x1="0" y1="-108" x2="0" y2="-138"
 	    stroke="black" stroke-width="4" />
-      {{ range $i := seq 28 28 140 }}
+      {{ range $i := seq 30 30 160 }}
       <g transform="rotate({{ $i }})">
 	<line class="ticks" x1="0" y1="-212" x2="0" y2="-272"
 	      stroke="black" stroke-width="6" />
 	<line class="ticks" x1="0" y1="-108" x2="0" y2="-138"
 	      stroke="black" stroke-width="4" />
-	{{ range $j := seq 7 7 28 }}
+	{{ range $j := seq 6 6 30 }}
 	<line class="ticks" x1="0" y1="-242" x2="0" y2="-272"
 	      stroke="black" stroke-width="2" transform="rotate(-{{ $j }})" />
         {{ end }}
@@ -39,7 +39,7 @@
 	      stroke="black" stroke-width="6" />
 	<line class="ticks" x1="0" y1="-108" x2="0" y2="-138"
 	      stroke="black" stroke-width="4" />
-	{{ range $j := seq 7 7 28 }}
+	{{ range $j := seq 6 6 30 }}
 	<line class="ticks" x1="0" y1="-242" x2="0" y2="-272"
 	      stroke="black" stroke-width="2" transform="rotate({{ $j }})" />
         {{ end }}
@@ -63,9 +63,8 @@
 
     </g>
   </svg>
-  {{ $intro := .intro }}
   <div id="first" style="text-align: center">
-    <h4>{{ $intro }}</h4>
+    <h4>{{ .intro }}</h4>
     <input type="button" value="Start" class="start" id="start" />
   </div>
   {{ $questions := .question }}
@@ -78,7 +77,7 @@
   {{ $centre := default "-" (index $centre_texts $index) }}
   {{ $right := default "Yes" (index $right_texts $index) }}
   <div id="panel-{{ add $index 1 }}" style="display: none; text-align: center">
-    <h5>{{ $question }}</h5>
+    <h4>{{ $question }}</h4>
     <div class="slider" id="value-{{ add $index 1 }}"></div>
     <div>
       {{ if ne $centre "-" }}
@@ -109,7 +108,7 @@
   {{ end }}
   {{ end }}
   <div id="last" style="display: none; text-align: center;">
-    <h3 id="answer"></h3>
+    <h4 id="answer"></h4>
     <input type="button" value="Again" class="again" id="again" />
     {{ if .more }}
     <br />
@@ -119,24 +118,23 @@
 </div>
 <br />
 {{ with .result }}
-{{ .Scratch.Set "results" . }}
+{{ $.Scratch.Set "results" . }}
 {{ end }}
 {{ with (default .colors .colours) }}
-{{ .Scratch.Set "colours" (split . ",") }}
+{{ $.Scratch.Set "colours" (split . ",") }}
 {{ end }}
 {{ with .weights }}
-{{ .Scratch.Set "weights" (split . ",") }}
+{{ $.Scratch.Set "weights" (split . ",") }}
 {{ end }}
 {{ with .duration }}
-{{ .Scratch.Set "duration" . }}
+{{ $.Scratch.Set "duration" . }}
 {{ end }}
 {{ with .easing }}
-{{ .Scratch.Set "easing" . }}
+{{ $.Scratch.Set "easing" . }}
 {{ end }}
-{{ $json := dict "results" (.Scratch.Get "results") "colours" (.Scratch.Get "colours") "weights" (.Scratch.Get "weights") "duration" (.Scratch.Get "duration") "easing" (.Scratch.Get "easing") }}
+{{ $json := dict "results" ($.Scratch.Get "results") "colours" ($.Scratch.Get "colours") "weights" ($.Scratch.Get "weights") "duration" ($.Scratch.Get "duration") "easing" ($.Scratch.Get "easing") }}
 <script type="text/javascript">
   var whatever_data = {{ safeJS (jsonify $json) }};
 </script>
-{{ end }}
 {{ end }}
 {{ end }}
